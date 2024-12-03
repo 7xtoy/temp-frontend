@@ -1,8 +1,23 @@
-import { Header, ContentWrapper, Home, ToyTitle, FlyingBuzz, Scoreboard } from "@/exports";
-import { useState, useRef } from "react";
+import { Header, Logo, Home, Scoreboard } from "@/exports";
+import { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
+    useEffect( () => {
+        const setFavicon = () => {
+            const link =
+              document.querySelector("link[rel~='icon']") ||
+              document.createElement("link");
+            link.rel = "icon";
+            link.href = Logo;
+          
+            if (!link.parentNode) {
+              document.head.appendChild(link);
+            }
+        };
+
+        setFavicon()
+    })
     return (
         <Router>
             <Header/>
