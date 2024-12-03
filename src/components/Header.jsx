@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { LogoLong, ToyTitle } from "@/exports";
+import { Link } from "react-router-dom";
 
-
-const Header = ({counter}) => {
+const Header = () => {
     return (
         <header
             className={clsx(
@@ -10,18 +10,12 @@ const Header = ({counter}) => {
                 "bg-sky-300 border-b-4 border-sky-200 shadow-xl z-[1000]"
             )}
         >
-            <ToyTitle title={`Hamster count: ${counter}`}  className="text-3xl"/>
-        
             <div className="flex items-center justify-center gap-12">
-                <a href="TODO LINK EVENEMENTS" className="text-4xl">
-                    <ToyTitle title={"Évènements"} link={true}/>
-                </a>
+                <Link to="/"><ToyTitle title={"Évènements"} className="text-4xl" link={true}/></Link>
                 
                 <img src={LogoLong} alt="7x Toy Story" className="w-64 h-auto" />
 
-                <a href="TODO LINK SCOREBOARD" className="text-4xl">
-                    <ToyTitle title={"Scoreboard"} link={true}/>
-                </a>
+                <Link to="/Scoreboard"><ToyTitle title={"Scoreboard"} className="text-4xl" link={true}/></Link>
             </div>
         </header>
     );

@@ -38,7 +38,6 @@ export const FallingHamster = ({explosionRef, setCounter}) => {
     }
 
     const handleClick = () => {
-        setCounter(prevCounter => prevCounter + 1)
         setDurationMultiplier(prevDurationMultiplier => prevDurationMultiplier * 0.95)
 
         if (!isClicked) {
@@ -91,12 +90,12 @@ export const FallingHamster = ({explosionRef, setCounter}) => {
     )
 }
 
-const HamsterGame = ({setCounter}) => {
+const HamsterGame = () => {
     const explosionRef = useRef(null)
 
     return (
         <>
-            <FallingHamster explosionRef={explosionRef} setCounter={setCounter}/>
+            <FallingHamster explosionRef={explosionRef}/>
             <img 
                 ref={explosionRef}
                 src={Explosion} 

@@ -7,7 +7,7 @@ const ToyTitle = ({ title, className="", link=false}) => {
     const trend = [-2,-4,-6,4,9,-9,-9,-8,2,1,-3,-4,-9,3,8,-7,-9,-6,-4,-6,-4,-10,4,2,-4,7,-7,10,-5,-10]
 
     return (
-        <div className={clsx("flex flex-nowrap font-display text-border text-pastel-400 group", className)}>
+        <div className={clsx("flex flex-wrap font-display text-border text-pastel-400 group", className)}>
             {[...title].map((character, index) => (
                 <span
                     key={index}

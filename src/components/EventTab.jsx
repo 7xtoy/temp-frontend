@@ -52,7 +52,7 @@ const EventTab = ({event, advent=false}) => {
                 <img src={Woody} alt="Woody" className="w-32" />
             )}
             <article className={clsx(
-                    "group relative w-full border-4 rounded-xl border-pastel-400 flex flex-col gap-2 p-4",
+                    "group relative w-full border-4 rounded-xl border-pastel-400 flex flex-col gap-2 px-4 pt-4 pb-8",
                     {
                         "border-pastel-400": !advent,
                         "bg-gradient-to-br from-sky-300 via-blue-400 to-teal-400 hover:bg-opacity-50 transition-opacity": !advent,

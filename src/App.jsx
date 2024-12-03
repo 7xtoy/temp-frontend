@@ -1,18 +1,17 @@
-import { Header, ContentWrapper, Home, ToyTitle, HamsterGame, FlyingBuzz } from "@/exports";
+import { Header, ContentWrapper, Home, ToyTitle, FlyingBuzz, Scoreboard } from "@/exports";
 import { useState, useRef } from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-    const [counter, setCounter] = useState(0)
-
     return (
-        <>
-            <Header counter={counter}/>
-            <FlyingBuzz />
-            <HamsterGame setCounter={setCounter}/>
-            <ContentWrapper>
-                <Home />
-            </ContentWrapper>
-        </>
+        <Router>
+            <Header/>
+
+            <Routes>
+                <Route path="/" exact Component={Home} />
+                <Route path="/Scoreboard" exact Component={Scoreboard} />
+            </Routes>
+        </Router>
     );
 }
 

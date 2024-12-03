@@ -1,16 +1,44 @@
 {
   "scoreboard": [
     {
+      "name": "Player 6",
+      "points": 887
+    },
+    {
       "name": "Victor L.",
       "points": 980
     },
     {
-      "name": "Nolan C.",
-      "points": 738
+      "name": "Player 2",
+      "points": 434
+    },
+    {
+      "name": "Player 1",
+      "points": 406
+    },
+    {
+      "name": "Player 3",
+      "points": 186
     },
     {
       "name": "Michelle I.",
       "points": 190
+    },
+    {
+      "name": "Player 5",
+      "points": 516
+    },
+    {
+      "name": "Player 4",
+      "points": 566
+    },
+    {
+      "name": "Player 7",
+      "points": 484
+    },
+    {
+      "name": "Nolan C.",
+      "points": 738
     }
-  ]
+  ]  
 }
