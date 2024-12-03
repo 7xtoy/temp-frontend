@@ -6,7 +6,7 @@ const HomeComponent = ({showIncomingEvents}) => {
 
     return (
         <section className={clsx(
-            "w-full md:w-3/5 flex flex-col gap-28"
+            "w-full lg:w-3/5 md:w-3/4 flex flex-col gap-28"
         )}>
             <div className="flex flex-col">
                 <ToyTitle title={`Calendrier de l'avent`} className={"lg:text-5xl sm:text-3xl text-3xl mb-6"} />
@@ -31,7 +31,7 @@ const HomeComponent = ({showIncomingEvents}) => {
 }
 
 const Home = () => {
-    const showIncomingEvents = false
+    const showIncomingEvents = true
 
     useEffect( () => {
         document.title = "7x Toy Story"

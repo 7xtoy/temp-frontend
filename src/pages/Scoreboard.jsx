@@ -52,7 +52,7 @@ const ScoreboardComponent = () => {
 
     return (
         <section
-            className="flex flex-col w-full md:w-3/5 gap-28 text-white"
+            className="flex flex-col w-full lg:w-3/5 md:w-3/4 gap-28 text-white"
         >
 
             <div className="flex flex-col">

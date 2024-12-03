@@ -73,7 +73,7 @@ const EventTab = ({event, advent=false}) => {
 
                 { ( (!advent && remainingDaysString !== "") || advent ) && (
                     <div className={clsx(
-                        "absolute right-0 top-0 translate-x-1/3 -translate-y-1/2 rotate-12 group-hover:rotate-[15deg] transition-transform",
+                        "absolute right-0 top-0 md:translate-x-1/3 -translate-x-[10%] -translate-y-1/2 md:rotate-12 md:group-hover:rotate-[15deg] transition-transform",
                         "shadow-lg bg-pastel-400 px-3 py-2 rounded-lg font-display",
                         {
                             "text-4xl text-toy-red-400": advent
@@ -81,19 +81,20 @@ const EventTab = ({event, advent=false}) => {
                     )}>{advent ? `J-${AdventData.advent.day}` : remainingDaysString}</div>
                 )}
 
-                <div className="relative flex gap-4">
-                    <img src={event.icon_who} alt={event.name} className="size-16 rounded-full border-2 border-pastel-400 pointer-events-none" />
+                <div className="relative flex md:flex-row flex-col gap-4">
+                    <img src={event.icon_who} alt={event.name} className="size-16 rounded-full border-2 border-pastel-400 pointer-events-none md:block hidden" />
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex md:flex-col flex-row md:items-start items-center gap-2">
+                        <img src={event.icon_who} alt={event.name} className="size-16 rounded-full border-2 border-pastel-400 pointer-events-none md:hidden block" />
                         <ToyTitle title={event.name} className={clsx(
                             {
                                 "text-3xl": !advent,
-                                "text-pastel-400 text-4xl": advent
+                                "text-pastel-400 lg:text-4xl md:text-3xl text-xl": advent
                             }
                         )}/>
 
                         <div className={clsx(
-                            "flex gap-2 items-center text-sm w-fit",
+                            "gap-2 md:items-center text-sm w-fit md:flex hidden",
                             {
                                 "border-[3px] border-pastel-400 bg-toy-red-400 px-3 py-2 rounded-lg": advent
                             }
@@ -110,10 +111,28 @@ const EventTab = ({event, advent=false}) => {
                             </div>
                         </div>
 
-                        <p className="text-md">{event.description}</p>
-
-
+                        <p className="text-md md:block hidden">{event.description}</p>
                     </div>
+
+                    <div className={clsx(
+                            "w-full justify-center gap-2 items-center text-sm md:hidden flex",
+                            {
+                                "border-[3px] border-pastel-400 bg-toy-red-400 px-3 py-2 rounded-lg": advent
+                            }
+                            )}>
+                            <p>{event.who}</p>
+                            <span className="size-1 bg-pastel-400 rounded-full" />
+                            <p>{getEventDateString(event.when)}</p>
+                            <span className="size-1 bg-pastel-400 rounded-full" />
+                            <div className="flex gap-2 items-center">
+                                {<GeoAltFill className="text-pastel-400" size={12}/>}
+                                <span>
+                                {event.place}
+                                </span>
+                            </div>
+                        </div>
+
+                        <p className="text-md md:hidden flex">{event.description}</p>
                 </div>
             </article>
         </>
