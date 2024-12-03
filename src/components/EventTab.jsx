@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { ToyTitle, ChristmasBackground } from "@/exports";
+import { ToyTitle, ChristmasBackground, Woody } from "@/exports";
 import { format } from "date-fns"
 import { GeoAltFill } from "react-bootstrap-icons";
 import { AdventData } from "../exports";
@@ -47,71 +47,76 @@ const EventTab = ({event, advent=false}) => {
     const remainingDaysString = getRemainingDaysString(event.when.start)
 
     return (
-        <article className={clsx(
-                "group relative w-full border-4 rounded-xl border-pastel-400 flex flex-col gap-2 p-4",
-                {
-                    "border-pastel-400": !advent,
-                    "bg-gradient-to-br from-sky-300 via-blue-400 to-teal-400 hover:bg-opacity-50 transition-opacity": !advent,
-                    "text-white border-pastel-400 shadow-2xl shadow-pastel-400/50 hover:shadow-pastel-400 transition-all duration-300": advent
-                }
+        <>
+            {advent && (
+                <img src={Woody} alt="Woody" className="w-32" />
             )}
-            style={advent ? {
-                backgroundImage: `url(${ChristmasBackground}`,
-                backgroundRepeat: "repeat"
-            } : {}}
-        >
-            {!advent && (
-                <div className={clsx(
-                    "absolute inset-0 rounded-xl",
-                    "bg-gradient-to-br from-cyan-400 via-sky-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                )} />
-            )}
-
-            { ( (!advent && remainingDaysString !== "") || advent ) && (
-                <div className={clsx(
-                    "absolute right-0 top-0 translate-x-1/3 -translate-y-1/2 rotate-12 group-hover:rotate-[15deg] transition-transform",
-                    "shadow-lg bg-pastel-400 px-3 py-2 rounded-lg font-display",
+            <article className={clsx(
+                    "group relative w-full border-4 rounded-xl border-pastel-400 flex flex-col gap-2 p-4",
                     {
-                        "text-4xl text-toy-red-400": advent
+                        "border-pastel-400": !advent,
+                        "bg-gradient-to-br from-sky-300 via-blue-400 to-teal-400 hover:bg-opacity-50 transition-opacity": !advent,
+                        "text-white border-pastel-400 shadow-2xl shadow-pastel-400/50 hover:shadow-pastel-400 transition-all duration-300": advent
                     }
-                )}>{advent ? `J-${AdventData.advent.day}` : remainingDaysString}</div>
-            )}
-
-            <div className="relative flex gap-4">
-                <img src={event.icon_who} alt={event.name} className="size-16 rounded-full border-2 border-pastel-400 pointer-events-none" />
-
-                <div className="flex flex-col gap-2">
-                    <ToyTitle title={event.name} className={clsx(
-                        {
-                            "text-3xl": !advent,
-                            "text-pastel-400 text-4xl": advent
-                        }
-                    )}/>
-
+                )}
+                style={advent ? {
+                    backgroundImage: `url(${ChristmasBackground}`,
+                    backgroundRepeat: "repeat"
+                } : {}}
+            >
+                {!advent && (
                     <div className={clsx(
-                        "flex gap-2 items-center text-sm w-fit",
+                        "absolute inset-0 rounded-xl",
+                        "bg-gradient-to-br from-cyan-400 via-sky-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                    )} />
+                )}
+
+                { ( (!advent && remainingDaysString !== "") || advent ) && (
+                    <div className={clsx(
+                        "absolute right-0 top-0 translate-x-1/3 -translate-y-1/2 rotate-12 group-hover:rotate-[15deg] transition-transform",
+                        "shadow-lg bg-pastel-400 px-3 py-2 rounded-lg font-display",
                         {
-                            "border-[3px] border-pastel-400 bg-toy-red-400 px-3 py-2 rounded-lg": advent
+                            "text-4xl text-toy-red-400": advent
                         }
-                        )}>
-                        <p>{event.who}</p>
-                        <span className="size-1 bg-pastel-400 rounded-full" />
-                        <p>{getEventDateString(event.when)}</p>
-                        <span className="size-1 bg-pastel-400 rounded-full" />
-                        <div className="flex gap-2 items-center">
-                            {<GeoAltFill className="text-pastel-400" size={12}/>}
-                            <span>
-                            {event.place}
-                            </span>
+                    )}>{advent ? `J-${AdventData.advent.day}` : remainingDaysString}</div>
+                )}
+
+                <div className="relative flex gap-4">
+                    <img src={event.icon_who} alt={event.name} className="size-16 rounded-full border-2 border-pastel-400 pointer-events-none" />
+
+                    <div className="flex flex-col gap-2">
+                        <ToyTitle title={event.name} className={clsx(
+                            {
+                                "text-3xl": !advent,
+                                "text-pastel-400 text-4xl": advent
+                            }
+                        )}/>
+
+                        <div className={clsx(
+                            "flex gap-2 items-center text-sm w-fit",
+                            {
+                                "border-[3px] border-pastel-400 bg-toy-red-400 px-3 py-2 rounded-lg": advent
+                            }
+                            )}>
+                            <p>{event.who}</p>
+                            <span className="size-1 bg-pastel-400 rounded-full" />
+                            <p>{getEventDateString(event.when)}</p>
+                            <span className="size-1 bg-pastel-400 rounded-full" />
+                            <div className="flex gap-2 items-center">
+                                {<GeoAltFill className="text-pastel-400" size={12}/>}
+                                <span>
+                                {event.place}
+                                </span>
+                            </div>
                         </div>
+
+                        <p className="text-md">{event.description}</p>
+
+
                     </div>
-
-                    <p className="text-md">{event.description}</p>
-
-
                 </div>
-            </div>
-        </article>
+            </article>
+        </>
     )
 }
 

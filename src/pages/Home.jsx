@@ -6,9 +6,9 @@ const Home = () => {
         <section className={clsx(
             "w-full md:w-3/5 flex flex-col gap-28"
         )}>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col">
                 <ToyTitle title={`Calendrier de l'avent`} className={"lg:text-5xl sm:text-3xl text-3xl mb-6"} />
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col">
                     <EventTab advent={true} event={AdventData.advent} />
                 </div>
             </div>

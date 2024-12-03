@@ -67,7 +67,7 @@ export const FallingHamster = ({explosionRef, setCounter}) => {
             ref={imgRef}
             key={key}
             onClick={() => handleClick()}
-            className={clsx("w-24 h-fit absolute cursor-crosshair select-none z-[999]", {"hidden": isClicked})}
+            className={clsx("fixed w-24 h-fit cursor-crosshair select-none z-[999]", {"hidden": isClicked})}
             initial={{
                 top: "-15%",
                 left: `${leftOffset}%`,
@@ -91,25 +91,20 @@ export const FallingHamster = ({explosionRef, setCounter}) => {
     )
 }
 
-// const HamsterBackground = () => {
-//     const explosionRef = useRef(null)
-//     const [counter, setCounter] = useState(0)
+const HamsterGame = ({setCounter}) => {
+    const explosionRef = useRef(null)
 
-//     return (
-//         <div className={clsx(
-//             "fixed inset-0"
-//         )}>
-//             <FallingHamster explosionRef={explosionRef} setCounter={setCounter}/>
-//             <img 
-//                 ref={explosionRef}
-//                 src={Explosion} 
-//                 className={"w-24 absolute top-auto -translate-y-1/2 select-none pointer-events-none z-[999]"}
-//                 style={{display: "none"}}
-//             />
+    return (
+        <>
+            <FallingHamster explosionRef={explosionRef} setCounter={setCounter}/>
+            <img 
+                ref={explosionRef}
+                src={Explosion} 
+                className={"w-24 fixed top-auto -translate-y-1/2 select-none pointer-events-none z-[999]"}
+                style={{display: "none"}}
+            />
+        </>
+    )
+}
 
-//             <ToyTitle title={`Hamster count: ${counter}`}  className="text-3xl absolute bottom-0"/>
-//         </div>
-//     )
-// }
-
-// export default HamsterBackground
+export default HamsterGame;
